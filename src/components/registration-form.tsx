@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { useEffect } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -39,8 +39,8 @@ import {
 } from "@/components/ui/accordion";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { User, Users } from "lucide-react";
-import { problemStatements } from "@/lib/problem-statements";
+import { User, Users, Loader2 } from "lucide-react";
+import { getProblemStatements, ProblemStatement, registerTeamAction } from "@/services/problem-statement-service";
 
 
 const memberSchema = z.object({
@@ -52,25 +52,35 @@ const memberSchema = z.object({
   }),
 });
 
-const formSchema = z.object({
+export const formSchema = z.object({
   teamName: z.string().min(3, { message: "Team name must be at least 3 characters." }),
   problemStatement: z.string({ required_error: "Please select a problem statement." }),
   members: z.array(memberSchema).length(6, { message: "A team must have exactly 6 members." }),
 });
 
-type FormValues = z.infer<typeof formSchema>;
+export type FormValues = z.infer<typeof formSchema>;
 
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
 export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
   const { toast } = useToast();
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [problemStatements, setProblemStatements] = useState<ProblemStatement[]>([]);
+
+  useEffect(() => {
+    async function fetchStatements() {
+      const data = await getProblemStatements();
+      setProblemStatements(data);
+    }
+    fetchStatements();
+  }, []);
 
   const defaultMembers = Array(6).fill({
     name: "",
     department: "",
     year: "",
-    gender: "",
+    gender: "male",
   });
 
   const form = useForm<FormValues>({
@@ -101,13 +111,23 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
       return;
     }
 
-    toast({
-      title: "Registration Submitted!",
-      description: `Team "${data.teamName}" has been successfully registered for ${data.problemStatement}.`,
+    startTransition(async () => {
+      const result = await registerTeamAction(data);
+      if (result.success) {
+        toast({
+          title: "Registration Submitted!",
+          description: `Team "${data.teamName}" has been successfully registered for ${data.problemStatement}.`,
+        });
+        form.reset();
+        router.push('/');
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Registration Failed",
+          description: result.error,
+        });
+      }
     });
-    console.log(data);
-    form.reset();
-    router.push('/');
   }
 
   return (
@@ -257,7 +277,8 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit" size="lg" className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
+            <Button type="submit" size="lg" className="w-full" disabled={isPending}>
+              {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Register Team
             </Button>
           </CardFooter>

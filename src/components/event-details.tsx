@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Card,
   CardContent,
@@ -6,7 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building, FileText, Hash, Palette, Tag, Users } from "lucide-react";
-import { ProblemStatement, problemStatements } from "@/lib/problem-statements";
+import { getProblemStatementByPsNumber, ProblemStatement } from "@/services/problem-statement-service";
+import { useEffect, useState } from "react";
 
 const DetailItem = ({
   icon,
@@ -27,7 +30,17 @@ const DetailItem = ({
 );
 
 export default function EventDetails({ psNumber }: { psNumber: string }) {
-  const statement = problemStatements.find(ps => ps.psNumber === psNumber);
+  const [statement, setStatement] = useState<ProblemStatement | null>(null);
+
+  useEffect(() => {
+    async function fetchStatement() {
+      const data = await getProblemStatementByPsNumber(psNumber);
+      setStatement(data);
+    }
+    if (psNumber) {
+      fetchStatement();
+    }
+  }, [psNumber]);
 
   if (!statement) {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   Table,
@@ -25,19 +25,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { problemStatements } from "@/lib/problem-statements";
+import { getProblemStatements, ProblemStatement } from "@/services/problem-statement-service";
 import { Badge } from "./ui/badge";
 
 export default function ProblemStatements() {
   const router = useRouter();
   const [filter, setFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [statements, setStatements] = useState<ProblemStatement[]>([]);
+
+  useEffect(() => {
+    async function fetchStatements() {
+      const data = await getProblemStatements();
+      setStatements(data);
+    }
+    fetchStatements();
+  }, []);
+
 
   const handleRowClick = (psNumber: string) => {
     router.push(`/register/${psNumber}`);
   };
 
-  const filteredStatements = problemStatements.filter((statement) => {
+  const filteredStatements = statements.filter((statement) => {
     const searchLower = filter.toLowerCase();
     const matchesFilter =
       statement.title.toLowerCase().includes(searchLower) ||
@@ -51,7 +61,7 @@ export default function ProblemStatements() {
     return matchesFilter && matchesCategory;
   });
 
-  const categories = ["all", ...Array.from(new Set(problemStatements.map(p => p.category)))];
+  const categories = ["all", ...Array.from(new Set(statements.map(p => p.category)))];
 
   return (
     <Card>
@@ -91,6 +101,7 @@ export default function ProblemStatements() {
                 <TableHead>Organization</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Theme</TableHead>
+                <TableHead>Submissions</TableHead>
                 <TableHead className="text-right">PS Number</TableHead>
               </TableRow>
             </TableHeader>
@@ -108,6 +119,7 @@ export default function ProblemStatements() {
                     <Badge variant={statement.category === 'Software' ? 'default' : 'secondary'}>{statement.category}</Badge>
                   </TableCell>
                   <TableCell>{statement.theme}</TableCell>
+                  <TableCell>{statement.submittedIdeas}</TableCell>
                   <TableCell className="text-right">{statement.psNumber}</TableCell>
                 </TableRow>
               ))}
