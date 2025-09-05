@@ -11,7 +11,7 @@ export default function DownloadButton() {
   return (
     <Button onClick={handleDownload}>
       <Download className="mr-2 h-4 w-4" />
-      Download Registrations
+      Download Registrations (CSV)
     </Button>
   );
 }
