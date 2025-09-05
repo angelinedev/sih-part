@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building, FileText, Hash, Palette, Tag, Users } from "lucide-react";
+import { ProblemStatement, problemStatements } from "@/lib/problem-statements";
 
 const DetailItem = ({
   icon,
@@ -25,40 +26,57 @@ const DetailItem = ({
   </div>
 );
 
-export default function EventDetails() {
+export default function EventDetails({ psNumber }: { psNumber: string }) {
+  const statement = problemStatements.find(ps => ps.psNumber === psNumber);
+
+  if (!statement) {
+    return (
+      <Card className="w-full sticky top-8">
+        <CardHeader>
+          <CardTitle className="font-headline text-2xl flex items-center gap-2">
+            Problem Statement Not Found
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>The requested problem statement could not be found.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <Card className="w-full sticky top-8">
       <CardHeader>
         <CardTitle className="font-headline text-2xl flex items-center gap-2">
-          Hackathon Overview
+          Problem Statement Details
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <DetailItem
           icon={<Building size={20} />}
           label="Organization"
-          value="Innovate Corp"
+          value={statement.organization}
         />
         <DetailItem
           icon={<FileText size={20} />}
           label="Problem Statement Title"
-          value="AI for Sustainable Agriculture"
+          value={statement.title}
         />
         <DetailItem
           icon={<Tag size={20} />}
           label="Category"
-          value={<Badge variant="secondary">AI & Machine Learning</Badge>}
+          value={<Badge variant="secondary">{statement.category}</Badge>}
         />
-        <DetailItem icon={<Hash size={20} />} label="PS Number" value="PS-042" />
+        <DetailItem icon={<Hash size={20} />} label="PS Number" value={statement.psNumber} />
         <DetailItem
           icon={<Users size={20} />}
           label="Submitted Ideas"
-          value="24 Teams Registered"
+          value={`${statement.submittedIdeas} Teams Registered`}
         />
         <DetailItem
           icon={<Palette size={20} />}
           label="Theme"
-          value={<Badge variant="outline">Future of Technology</Badge>}
+          value={<Badge variant="outline">{statement.theme}</Badge>}
         />
       </CardContent>
     </Card>

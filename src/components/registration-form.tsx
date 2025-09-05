@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -38,6 +39,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { User, Users } from "lucide-react";
+import { problemStatements } from "@/lib/problem-statements";
+
 
 const memberSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -56,14 +59,9 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const problemStatements = Array.from({ length: 135 }, (_, i) => ({
-  value: `PS-${i + 1}`,
-  label: `Problem Statement ${i + 1}`,
-}));
-
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
-export default function RegistrationForm() {
+export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
   const { toast } = useToast();
 
   const defaultMembers = Array(6).fill({
@@ -77,10 +75,17 @@ export default function RegistrationForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       teamName: "",
-      problemStatement: "",
+      problemStatement: psNumber || "",
       members: defaultMembers as FormValues["members"],
     },
   });
+
+  useEffect(() => {
+    if (psNumber) {
+      form.setValue("problemStatement", psNumber);
+    }
+  }, [psNumber, form]);
+
 
   function onSubmit(data: FormValues) {
     const hasFemale = data.members.some((member) => member.gender === "female");
@@ -96,7 +101,7 @@ export default function RegistrationForm() {
 
     toast({
       title: "Registration Submitted!",
-      description: `Team "${data.teamName}" has been successfully registered.`,
+      description: `Team "${data.teamName}" has been successfully registered for ${data.problemStatement}.`,
     });
     console.log(data);
     form.reset();
@@ -131,7 +136,7 @@ export default function RegistrationForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Problem Statement Selection</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select a problem statement" />
@@ -139,8 +144,8 @@ export default function RegistrationForm() {
                       </FormControl>
                       <SelectContent>
                         {problemStatements.map((ps) => (
-                          <SelectItem key={ps.value} value={ps.value}>
-                            {ps.label}
+                          <SelectItem key={ps.psNumber} value={ps.psNumber}>
+                            {ps.psNumber}: {ps.title}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -255,7 +260,7 @@ export default function RegistrationForm() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
+            <Button type="submit" size="lg" className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
               Register Team
             </Button>
           </CardFooter>
