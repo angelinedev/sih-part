@@ -1,7 +1,7 @@
 import { getRegistrations } from '@/services/problem-statement-service';
 import { NextRequest, NextResponse } from 'next/server';
 
-function convertToCSV(data: any[]) {
+function convertToTxt(data: any[]) {
   if (data.length === 0) {
     return '';
   }
@@ -18,33 +18,33 @@ function convertToCSV(data: any[]) {
   );
 
   const headers = Object.keys(registrations[0]);
-  const csvRows = [headers.join(',')];
+  const txtRows = [headers.join('\t')];
 
   for (const row of registrations) {
     const values = headers.map(header => {
-      const escaped = ('' + row[header]).replace(/"/g, '""');
-      return `"${escaped}"`;
+      // Basic sanitization for tab-separated values
+      return ('' + row[header]).replace(/\s/g, ' ');
     });
-    csvRows.push(values.join(','));
+    txtRows.push(values.join('\t'));
   }
 
-  return csvRows.join('\n');
+  return txtRows.join('\n');
 }
 
 export async function GET(req: NextRequest) {
   try {
     const registrations = await getRegistrations();
-    const csvData = convertToCSV(registrations);
+    const txtData = convertToTxt(registrations);
 
-    return new NextResponse(csvData, {
+    return new NextResponse(txtData, {
       status: 200,
       headers: {
-        'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename="registrations.csv"',
+        'Content-Type': 'text/plain',
+        'Content-Disposition': 'attachment; filename="registrations.txt"',
       },
     });
   } catch (error) {
-    console.error('Failed to generate CSV:', error);
-    return new NextResponse('Error generating CSV file.', { status: 500 });
+    console.error('Failed to generate TXT:', error);
+    return new NextResponse('Error generating TXT file.', { status: 500 });
   }
 }

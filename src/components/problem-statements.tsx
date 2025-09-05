@@ -72,7 +72,7 @@ export default function ProblemStatements() {
         </CardDescription>
         <div className="flex flex-col sm:flex-row gap-2 pt-4">
           <Input
-            placeholder="Filter by keyword, organization, theme..."
+            placeholder="Filter by keyword, PS Number, organization..."
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
             className="max-w-sm"
