@@ -64,7 +64,7 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
     name: "",
     department: "",
     year: "",
-    gender: "male",
+    gender: "",
   });
 
   const form = useForm<FormValues>({
