@@ -1295,3 +1295,10 @@ export async function registerTeamAction(data: FormValues) {
     return { success: false, error: errorMessage };
   }
 }
+
+export async function clearRegistrations() {
+  registrationsStore = [];
+  problemStatementsStore.forEach(ps => ps.submittedIdeas = 0);
+  revalidatePath('/', 'layout');
+  return { success: true };
+}
