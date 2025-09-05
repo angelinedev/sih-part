@@ -82,11 +82,6 @@ export default function EventDetails({ psNumber }: { psNumber: string }) {
         />
         <DetailItem icon={<Hash size={20} />} label="PS Number" value={statement.psNumber} />
         <DetailItem
-          icon={<Users size={20} />}
-          label="Submitted Ideas"
-          value={`${statement.submittedIdeas} Teams Registered`}
-        />
-        <DetailItem
           icon={<Palette size={20} />}
           label="Theme"
           value={<Badge variant="outline">{statement.theme}</Badge>}

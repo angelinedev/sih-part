@@ -101,7 +101,6 @@ export default function ProblemStatements() {
                 <TableHead>Organization</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Theme</TableHead>
-                <TableHead>Submissions</TableHead>
                 <TableHead className="text-right">PS Number</TableHead>
               </TableRow>
             </TableHeader>
@@ -119,7 +118,6 @@ export default function ProblemStatements() {
                     <Badge variant={statement.category === 'Software' ? 'default' : 'secondary'}>{statement.category}</Badge>
                   </TableCell>
                   <TableCell>{statement.theme}</TableCell>
-                  <TableCell>{statement.submittedIdeas}</TableCell>
                   <TableCell className="text-right">{statement.psNumber}</TableCell>
                 </TableRow>
               ))}
