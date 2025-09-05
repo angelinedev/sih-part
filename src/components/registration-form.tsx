@@ -43,6 +43,7 @@ import { getProblemStatements, ProblemStatement, registerTeamAction } from "@/se
 import { formSchema, FormValues } from "@/lib/schemas";
 
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+const departments = ["cse-a", "cse-b", "ece", "it-a", "it-b", "eee", "aiml", "aids", "cs", "csbs"];
 
 export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
   const { toast } = useToast();
@@ -192,9 +193,18 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Department</FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g., Computer Science" {...field} />
-                              </FormControl>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <FormControl>
+                                    <SelectTrigger>
+                                      <SelectValue placeholder="Select department" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    {departments.map((dept) => (
+                                      <SelectItem key={dept} value={dept}>{dept.toUpperCase()}</SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
                               <FormMessage />
                             </FormItem>
                           )}
