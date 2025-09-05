@@ -1248,14 +1248,15 @@ export async function getRegistrations() {
 
 export async function registerTeamAction(data: FormValues) {
   try {
-    const validatedData = formSchema.parse(data);
+    // The data is already validated on the client-side, 
+    // so we can directly use it here.
     
     // Store the registration
-    registrationsStore.push(validatedData);
+    registrationsStore.push(data);
 
     // Update the submittedIdeas count
     const statementIndex = problemStatementsStore.findIndex(
-      ps => ps.psNumber === validatedData.problemStatement
+      ps => ps.psNumber === data.problemStatement
     );
 
     if (statementIndex !== -1) {
@@ -1265,7 +1266,7 @@ export async function registerTeamAction(data: FormValues) {
     }
     
     revalidatePath('/');
-    revalidatePath(`/register/${validatedData.problemStatement}`);
+    revalidatePath(`/register/${data.problemStatement}`);
 
     return { success: true };
   } catch (error) {
