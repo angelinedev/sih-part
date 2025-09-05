@@ -24,7 +24,7 @@ export default function RootLayout({
         <header className="py-4 px-4 sm:px-6 md:px-8 border-b border-border">
           <div className="container mx-auto">
             <Link href="/" className="cursor-pointer">
-              <h1 className="font-headline text-2xl md:text-3xl font-bold text-primary">Eventide</h1>
+              <h1 className="font-headline text-2xl md:text-3xl font-bold text-primary">Smart India Hackathon</h1>
               <p className="text-muted-foreground text-md">Problem Statements</p>
             </Link>
           </div>
