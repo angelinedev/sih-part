@@ -13,7 +13,6 @@ export interface ProblemStatement {
   title: string;
   category: 'Software' | 'Hardware';
   psNumber: string;
-  submittedIdeas: number;
   theme: string;
 }
 
@@ -25,7 +24,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Community Health Monitoring and Early Warning System for Water-Borne Diseases in Rural Northeast India",
         category: "Software",
         psNumber: "SIH25001",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -34,7 +32,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Tourist Safety Monitoring & Incident Response System using Al, Geo-Fencing, and Blockchain-based Digital ID",
         category: "Software",
         psNumber: "SIH25002",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -43,7 +40,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Low-Cost smart transportation solution for Agri produce from remote farms to nearest motorable road in NER Region",
         category: "Hardware",
         psNumber: "SIH25003",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -52,7 +48,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "lmage based breed recognition for cattle and buffaloes of India",
         category: "Software",
         psNumber: "SIH25004",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -61,7 +56,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "lmage based Animal Type Classification for cattle and buffaloes",
         category: "Software",
         psNumber: "SIH25005",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -70,7 +64,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a Digital Farm Management Portal for lmplementing Biosecurity ileasures in Pig and Poultry Farms",
         category: "Software",
         psNumber: "SIH25006",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -79,7 +72,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a Digital Farm Management Portal for Monitoring aximum Residue Limits (MRL) and Antimicrobial Usage (AMU) in Livestock",
         category: "Software",
         psNumber: "SIH25007",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -88,7 +80,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Disaster Preparedness and Response Education System for Schools and Colleges",
         category: "Software",
         psNumber: "SIH25008",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -97,7 +88,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Gamified Environmental Education Platform for Schools and Colleges",
         category: "Software",
         psNumber: "SIH25009",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -106,7 +96,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Crop Advisory System for Small and Marginal Farmers",
         category: "Software",
         psNumber: "SIH25010",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -115,7 +104,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Curriculum Activity & Attendance App",
         category: "Software",
         psNumber: "SIH25011",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -124,7 +112,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Automated Attendance System for Rural Schools",
         category: "Software",
         psNumber: "SIH25012",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -133,7 +120,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Real-Time Public Transport Tracking for Small Cities",
         category: "Software",
         psNumber: "SIH25013",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -142,7 +128,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Waste Segregation Monitoring System for Urban Local Bodies",
         category: "Hardware",
         psNumber: "SIH25014",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -151,7 +136,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Intelligent Pesticide Sprinkling System Determined by the Infection Level of a Plant",
         category: "Hardware",
         psNumber: "SIH25015",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -160,7 +144,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Automated Student Attendance Monitoring and Analytics System for Colleges",
         category: "Software",
         psNumber: "SIH25016",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -169,7 +152,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Digital Platform for Centralized Alumni Data Management and Engagement",
         category: "Software",
         psNumber: "SIH25017",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -178,7 +160,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Telemedicine Access for Rural Healthcare in Nabha",
         category: "Software",
         psNumber: "SIH25018",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -187,7 +168,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Digital Learning Platform for Rural School Students in Nabha",
         category: "Software",
         psNumber: "SIH25019",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -196,7 +176,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of indigenous contactless Integrated Track Monitoring Systems (ITMS) for Track Recording on Indian Railways",
         category: "Hardware",
         psNumber: "SIH25020",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -205,7 +184,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI based development of Laser based QR Code marking on 'track fittings on Indian Railways'.",
         category: "Hardware",
         psNumber: "SIH25021",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -214,7 +192,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Maximizing Section Throughput Using Al-Powered Precise Train Traffic Control",
         category: "Software",
         psNumber: "SIH25022",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -223,7 +200,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AyurSutra- Panchakarma Patient Management and therapy scheduling Software",
         category: "Software",
         psNumber: "SIH25023",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -232,7 +208,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Comprehensive Cloud-Based Practice Management & Nutrient Analysis Software for Ayurvedic Dietitians, Tailored for Ayurveda-Focused Diet Plans",
         category: "Software",
         psNumber: "SIH25024",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -241,7 +216,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "E tongue for Dravya identification",
         category: "Hardware",
         psNumber: "SIH25025",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -250,7 +224,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Develop API code to integrate NAMASTE and or the International Classification of Diseases (ICD-11) via the Traditional Medicine Module 2 (TM2) into existing EMR systems that comply with Electronic Health Record (EHR) Standards for India.",
         category: "Software",
         psNumber: "SIH25026",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -259,7 +232,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Develop a blockchain-based system for botanical traceability of Ayurvedic herbs, including geo-tagging from the point of collection (farmers/wild collectors) to the final Ayurvedic formulation label.",
         category: "Software",
         psNumber: "SIH25027",
-        submittedIdeas: 0,
         theme: "Blockchain & Cybersecurity",
     },
     {
@@ -268,7 +240,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Classroom & Timetable Scheduler",
         category: "Software",
         psNumber: "SIH25028",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -277,7 +248,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Authenticity Validator for Academia",
         category: "Software",
         psNumber: "SIH25029",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -286,7 +256,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Based Crop Recommendation for Farmers",
         category: "Software",
         psNumber: "SIH25030",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -295,7 +264,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Crowdsourced Civic lssue Reporting and Resolution System",
         category: "Software",
         psNumber: "SIH25031",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -304,7 +272,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a Smart Digital Platform to Promote Eco & Cultural Tourism in Jharkhand",
         category: "Software",
         psNumber: "SIH25032",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -313,7 +280,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Based Smart Allocation Engine for PM Internship Scheme",
         category: "Software",
         psNumber: "SIH25033",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -322,7 +288,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Based Internship Recommendation Engine for PM Internship Scheme",
         category: "Software",
         psNumber: "SIH25034",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -331,7 +296,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Sentiment analysis of comments received through E-consultation module",
         category: "Software",
         psNumber: "SIH25035",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -340,7 +304,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of Sensor for Detection Of Microplastics",
         category: "Hardware",
         psNumber: "SIH25036",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -349,7 +312,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a low-cost camera-based automated beach sand grain size mapping system",
         category: "Hardware",
         psNumber: "SIH25037",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -358,7 +320,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Blockchain-Based Blue Carbon Registry and MRV System",
         category: "Software",
         psNumber: "SIH25038",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -367,7 +328,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Integrated Platform for Crowdsourced Ocean Hazard Reporting and Social Media Analytics",
         category: "Software",
         psNumber: "SIH25039",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -376,7 +336,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "FloatChat - AI-Powered Conversational Interface for ARGO Ocean Data Discovery and Visualization",
         category: "Software",
         psNumber: "SIH25040",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -385,7 +344,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-Driven Unified Data Platform for Oceanographic, Fisheries, and Molecular Biodiversity Insights",
         category: "Software",
         psNumber: "SIH25041",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -394,7 +352,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Identifying Taxonomy and Assessing Biodiversity from eDNA Datasets",
         category: "Software",
         psNumber: "SIH25042",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -403,7 +360,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Embedded Intelligent Microscopy System for Identification and Counting of Microscopic Marine Organisms",
         category: "Hardware",
         psNumber: "SIH25043",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -412,7 +368,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Powered Crop Yield Prediction and Optimization",
         category: "Software",
         psNumber: "SIH25044",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -421,7 +376,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Blockchain-Based Supply Chain Transparency for Agricultural Produce",
         category: "Software",
         psNumber: "SIH25045",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -430,7 +384,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Waste Segregation and Recycling System",
         category: "Hardware",
         psNumber: "SIH25046",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -439,7 +392,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Disaster Response Drone for Remote Areas",
         category: "Hardware",
         psNumber: "SIH25047",
-        submittedIdeas: 0,
         theme: "Robotics and Drones",
     },
     {
@@ -448,7 +400,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Gamified Learning Platform for Rural Education",
         category: "Software",
         psNumber: "SIH25048",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -457,7 +408,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Driven Public Health Chatbot for Disease Awareness",
         category: "Software",
         psNumber: "SIH25049",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -466,7 +416,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Smart Traffic Management Systern for Urban Congestion",
         category: "Software",
         psNumber: "SIH25050",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -475,7 +424,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Renewable Energy Monitoring System for Microgrids",
         category: "Hardware",
         psNumber: "SIH25051",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -484,7 +432,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AR-Based Cultural Heritage Preservation Platform",
         category: "Software",
         psNumber: "SIH25052",
-        submittedIdeas: 0,
         theme: "Heritage & Culture",
     },
     {
@@ -493,7 +440,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Improved Onion storage technology for enhancing shelf life of onions",
         category: "Hardware",
         psNumber: "SIH25053",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -502,7 +448,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Automated High-Current Short-Circuit Test System for MCB to comply with IEC 60898-1:2015",
         category: "Hardware",
         psNumber: "SIH25054",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -511,7 +456,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Automated Specimen Preparation System for testing of Cable samples as per IS 10810 and IS 7098.",
         category: "Hardware",
         psNumber: "SIH25055",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -520,7 +464,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "To explore new/altermative assaying methods to the fire assay method for testing of gold jewellery and artefacts through non-destructive testing",
         category: "Hardware",
         psNumber: "SIH25056",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -529,7 +472,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Automated Compliance Checker for Legal Metrology Declarations on E-Commerce Platforms",
         category: "Hardware",
         psNumber: "SIH25057",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -538,7 +480,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Detection and Prevention of Tampering in Weighing and Measuring instruments",
         category: "Hardware",
         psNumber: "SIH25058",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -547,7 +488,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Enhancing Student Awareness on difference between Aadhaar linked and Direct Beneficiary Transfer(DBT) enabled Aadhaar seeded bank account.",
         category: "Software",
         psNumber: "SIH25059",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -556,7 +496,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Real life solutions for Waste Management.",
         category: "Software",
         psNumber: "SIH25060",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -565,7 +504,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Digitize and Showcase Monasteries of Sikkim for Tourism and Cultural Preservation",
         category: "Software",
         psNumber: "SIH25061",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -574,7 +512,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Implementation of Smart Agriculture for Efficient Cultivation in Hilly Regions",
         category: "Hardware",
         psNumber: "SIH25062",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -583,7 +520,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Developing a cost effective solution for detecting the breakage of Low Voltage AC Distribution Over Head conductors",
         category: "Hardware",
         psNumber: "SIH25063",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -592,7 +528,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Improving the Renewable Energy hosting capacity in Distribution Feeders improving the Power quality of Distribution network during high RE injection",
         category: "Hardware",
         psNumber: "SIH25064",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -601,7 +536,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Designing and development of an application for on spot assessment of Roof Top Rain water harvesting and artificial recharge potential and size of the RTRWH and AR.",
         category: "Software",
         psNumber: "SIH25065",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -610,7 +544,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of an Al-driven ChatBOT for INGRES as a virtuall assistant",
         category: "Software",
         psNumber: "SIH25066",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -619,7 +552,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Proposal for Design and development of application or Heavy Metal Pollution indices",
         category: "Software",
         psNumber: "SIH25067",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -628,7 +560,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Real time Groundwater resource evaluation using DWLR data",
         category: "Software",
         psNumber: "SIH25068",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -637,7 +568,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Driven Life Cycle Assessment (LCA) Tool for Advancing Circulanty and Sustainability in Metallurgy and Mining",
         category: "Software",
         psNumber: "SIH25069",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -646,7 +576,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Secure Data Wiping for Trustworthy IT Asset Recycling",
         category: "Software",
         psNumber: "SIH25070",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -655,7 +584,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Based Rockfall Prediction and Alert System for Open-Pit Mines",
         category: "Software",
         psNumber: "SIH25071",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -664,7 +592,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Design and Implementation of Solar-Powered Dewatering in Mining Operations.",
         category: "Hardware",
         psNumber: "SIH25072",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -673,7 +600,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Al-Powered Mobile Platform for Democratizing Sports Talent Assessment",
         category: "Software",
         psNumber: "SIH25073",
-        submittedIdeas: 0,
         theme: "Fitness & Sports",
     },
     {
@@ -682,7 +608,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-Powered Personal Farming Assistant for Kerala Farmers",
         category: "Software",
         psNumber: "SIH25074",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -691,7 +616,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Gamified Platform to Promote Sustainable Farming Practices",
         category: "Software",
         psNumber: "SIH25075",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -700,7 +624,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-Based Farmer Query Support and Advisory System",
         category: "Software",
         psNumber: "SIH25076",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -709,7 +632,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "A hardware that can detect and prevent unauthorized use of electric fences",
         category: "Hardware",
         psNumber: "SIH25077",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -718,7 +640,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Software other than a circuit breaker that can be used to detect and turn off LT lines when the line breaks",
         category: "Software",
         psNumber: "SIH25079",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -727,7 +648,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Document Overload at Kochi Metro Rail Limited (KMRL)-An automated solution",
         category: "Software",
         psNumber: "SIH25080",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -736,7 +656,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-Driven Train Induction Planning & Scheduling for Kochi Metro Rail Limited (KMRL)",
         category: "Software",
         psNumber: "SIH25081",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -745,7 +664,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a travel related software app that can be installed on mobile phones that could capture trip related information",
         category: "Software",
         psNumber: "SIH25082",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -754,7 +672,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Digital Health Record Management System for migrant workers in Kerala aligned with sustainable development goals.",
         category: "Software",
         psNumber: "SIH25083",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -763,7 +680,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Earthquake stabilised dialysis system for patient safety during seismic events.",
         category: "Hardware",
         psNumber: "SIH25084",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -772,7 +688,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Solution for NON-REVENUE LOSS IN WATER SUPPLY Solution to improve AWARENESS IN WATER CONSERVATION TREATMENT OF WASTE WATER AND REUSE FOR DOMESTIC PURPOSES",
         category: "Hardware",
         psNumber: "SIH25085",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -781,7 +696,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "GREY WATER MANAGEMENT AND REUSE WET LAND MANAGEMENT WATER CONSERVATION",
         category: "Hardware",
         psNumber: "SIH25090",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -790,7 +704,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-Based Timetable Generation System aligned with NEP 2020 for Multidisciplinary Education Structures",
         category: "Software",
         psNumber: "SIH25091",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -799,7 +712,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of a Digital Mental Health and Psychological Support System for Students in Higher Education",
         category: "Software",
         psNumber: "SIH25092",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -808,7 +720,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Centralised Digital Platform for Comprehensive student activity record in HEIs",
         category: "Software",
         psNumber: "SIH25093",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -817,7 +728,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "One-Stop Personalized Career & Education Advisor",
         category: "Software",
         psNumber: "SIH25094",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -826,7 +736,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Research and redesign a sport equipment commonly found in sport industry and utilize Fusion software to reimagine its design. Students can use Fusion Features such as Generative Design, Topology Optimization, Additive Build etc. The redesigned component should showcase innovation, enhanced functionality, and improved efficiency, all while being optimized for 3D printing.",
         category: "Hardware",
         psNumber: "SIH25095",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -835,7 +744,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "• Students are supposed to use Fusion software to generate NC code with machine details & tool library for any industrial component. • Students should possess technical skills in areas such as CAD/CAM software, G-code programming, toolpath optimization, and machining fundamentals. Additionally, their project ideas should demonstrate a viable solution to a real-world problem, ensuring feasibility and practicality in implementation.",
         category: "Hardware",
         psNumber: "SIH25096",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -844,7 +752,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Research and develop a design on autonomous small precision focused machine for planting crops or weeding.",
         category: "Software",
         psNumber: "SIH25097",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -853,7 +760,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Students are tasked with designing a 4-story commercial office building using Revit Architecture and Revit Structure , ensuring effective integration between architectural and structural models in a BIM environment.(The size of the plot can be assumed by the students, all the dimensions wherever necessary can be assumed by students in mm units.)",
         category: "Software",
         psNumber: "SIH25098",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -862,7 +768,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-powered monitoring of crop health, soil condition, and pest risks using multispectral/hyperspectral imaging and sensor data.",
         category: "Software",
         psNumber: "SIH25099",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -871,7 +776,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Accelerating High-Fidelity Road Network Modeling for Indian Traffic Simulations.",
         category: "Software",
         psNumber: "SIH25100",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -880,7 +784,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Remote classroom for rural colleges",
         category: "Software",
         psNumber: "SIH25101",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -889,7 +792,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "AI-based drop-out prediction and counseling system",
         category: "Software",
         psNumber: "SIH25102",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -898,7 +800,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "ERP-based Integrated Student Management system",
         category: "Software",
         psNumber: "SIH25103",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -907,7 +808,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Language Agnostic Chatbot",
         category: "Software",
         psNumber: "SIH25104",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -916,7 +816,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Develop computer programs (in any language, preferably Python) to identify the design principles behind the Kolam designs and recreate the kolams.",
         category: "Software",
         psNumber: "SIH12507",
-        submittedIdeas: 0,
         theme: "Heritage & Culture",
     },
     {
@@ -925,7 +824,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Development of AI-powered FRA Atlas and WebGIS-based Decision Support System (DSS) for Integrated Monitoring of Forest Rights Act (FRA) Implementation. (States to be concentrated: Madhya Pradesh, Tripura , Odisha, Telangana)",
         category: "Software",
         psNumber: "SIH12508",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -934,7 +832,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25109",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -943,7 +840,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25110",
-        submittedIdeas: 0,
         theme: "Blockchain & Cybersecurity",
     },
     {
@@ -952,7 +848,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25111",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -961,7 +856,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25112",
-        submittedIdeas: 0,
         theme: "Fitness & Sports",
     },
     {
@@ -970,7 +864,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25113",
-        submittedIdeas: 0,
         theme: "Heritage & Culture",
     },
     {
@@ -979,7 +872,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25114",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -988,7 +880,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25115",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -997,7 +888,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25116",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -1006,7 +896,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25117",
-        submittedIdeas: 0,
         theme: "Robotics and Drones",
     },
     {
@@ -1015,7 +904,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25118",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -1024,7 +912,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25119",
-        submittedIdeas: 0,
         theme: "Smart Vehicles",
     },
     {
@@ -1033,7 +920,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25120",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -1042,7 +928,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25121",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -1051,7 +936,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25122",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -1060,7 +944,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25123",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -1069,7 +952,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25124",
-        submittedIdeas: 0,
         theme: "Toys & Games",
     },
     {
@@ -1078,7 +960,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Hardware",
         psNumber: "SIH25125",
-        submittedIdeas: 0,
         theme: "Space Technology",
     },
     {
@@ -1087,7 +968,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25126",
-        submittedIdeas: 0,
         theme: "Agriculture, FoodTech & Rural Development",
     },
     {
@@ -1096,7 +976,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25127",
-        submittedIdeas: 0,
         theme: "Blockchain & Cybersecurity",
     },
     {
@@ -1105,7 +984,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25128",
-        submittedIdeas: 0,
         theme: "Clean & Green Technology",
     },
     {
@@ -1114,7 +992,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25129",
-        submittedIdeas: 0,
         theme: "Fitness & Sports",
     },
     {
@@ -1123,7 +1000,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25130",
-        submittedIdeas: 0,
         theme: "Heritage & Culture",
     },
     {
@@ -1132,7 +1008,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25131",
-        submittedIdeas: 0,
         theme: "MedTech / BioTech / HealthTech",
     },
     {
@@ -1141,7 +1016,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25132",
-        submittedIdeas: 0,
         theme: "Miscellaneous",
     },
     {
@@ -1150,7 +1024,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25133",
-        submittedIdeas: 0,
         theme: "Renewable / Sustainable Energy",
     },
     {
@@ -1159,7 +1032,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25134",
-        submittedIdeas: 0,
         theme: "Robotics and Drones",
     },
     {
@@ -1168,7 +1040,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25135",
-        submittedIdeas: 0,
         theme: "Smart Automation",
     },
     {
@@ -1177,7 +1048,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25136",
-        submittedIdeas: 0,
         theme: "Smart Vehicles",
     },
     {
@@ -1186,7 +1056,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25137",
-        submittedIdeas: 0,
         theme: "Travel & Tourism",
     },
     {
@@ -1195,7 +1064,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25138",
-        submittedIdeas: 0,
         theme: "Transportation & Logistics",
     },
     {
@@ -1204,7 +1072,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25139",
-        submittedIdeas: 0,
         theme: "Disaster Management",
     },
     {
@@ -1213,7 +1080,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25140",
-        submittedIdeas: 0,
         theme: "Smart Education",
     },
     {
@@ -1222,7 +1088,6 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25141",
-        submittedIdeas: 0,
         theme: "Toys & Games",
     },
     {
@@ -1231,12 +1096,11 @@ let problemStatementsStore: ProblemStatement[] = [
         title: "Student Innovation",
         category: "Software",
         psNumber: "SIH25142",
-        submittedIdeas: 0,
         theme: "Space Technology",
     },
 ];
 
-let registrationsStore: FormValues[] = [];
+let registrationsStore: { [psNumber: string]: FormValues[] } = {};
 
 const dataDir = path.join(process.cwd(), 'data');
 const csvFilePath = path.join(dataDir, 'registrations.csv');
@@ -1268,6 +1132,10 @@ function convertToCsvRow(data: FormValues) {
     row.push(escapeCsvCell(member.year));
     row.push(escapeCsvCell(member.gender));
   });
+  // Pad with empty cells if there are fewer than 6 members
+  for (let i = data.members.length; i < 6; i++) {
+    row.push(...Array(4).fill(''));
+  }
   return row.join(',');
 }
 
@@ -1297,17 +1165,28 @@ if (process.env.NODE_ENV !== 'production') {
 export async function getProblemStatements() {
   // Simulate network latency
   await new Promise(resolve => setTimeout(resolve, 500));
-  return problemStatementsStore;
+  const statementsWithCounts = problemStatementsStore.map(ps => ({
+    ...ps,
+    submittedIdeas: registrationsStore[ps.psNumber]?.length || 0,
+  }));
+  return statementsWithCounts;
 }
 
 export async function getProblemStatementByPsNumber(psNumber: string) {
     // Simulate network latency
   await new Promise(resolve => setTimeout(resolve, 200));
-  return problemStatementsStore.find(ps => ps.psNumber === psNumber) || null;
+  const statement = problemStatementsStore.find(ps => ps.psNumber === psNumber) || null;
+  if (statement) {
+    return {
+      ...statement,
+      submittedIdeas: registrationsStore[psNumber]?.length || 0,
+    }
+  }
+  return null;
 }
 
 export async function getRegistrations() {
-  return registrationsStore;
+  return Object.values(registrationsStore).flat();
 }
 
 export async function registerTeamAction(data: FormValues) {
@@ -1315,7 +1194,11 @@ export async function registerTeamAction(data: FormValues) {
     const validatedData = formSchema.parse(data);
     
     // Store the registration in-memory
-    registrationsStore.push(validatedData);
+    const psNumber = validatedData.problemStatement;
+    if (!registrationsStore[psNumber]) {
+      registrationsStore[psNumber] = [];
+    }
+    registrationsStore[psNumber].push(validatedData);
 
     // Persist to CSV file
     await ensureDataDirExists();
@@ -1333,19 +1216,6 @@ export async function registerTeamAction(data: FormValues) {
     }
     csvContent += convertToCsvRow(validatedData) + '\n';
     await fs.appendFile(csvFilePath, csvContent, 'utf-8');
-
-
-    // Update the submittedIdeas count
-    const statementIndex = problemStatementsStore.findIndex(
-      ps => ps.psNumber === validatedData.problemStatement
-    );
-
-    if (statementIndex !== -1) {
-      problemStatementsStore[statementIndex].submittedIdeas += 1;
-    } else {
-      // This case should ideally not happen if validation is correct
-      throw new Error("Problem statement not found.");
-    }
     
     revalidatePath('/', 'layout');
 
@@ -1362,8 +1232,7 @@ export async function registerTeamAction(data: FormValues) {
 }
 
 export async function clearRegistrations() {
-  registrationsStore = [];
-  problemStatementsStore.forEach(ps => ps.submittedIdeas = 0);
+  registrationsStore = {};
   
   // Clear the CSV file
   await ensureDataDirExists();
