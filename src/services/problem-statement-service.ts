@@ -3,7 +3,8 @@
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { formSchema, FormValues } from '@/lib/schemas';
-
+import fs from 'fs/promises';
+import path from 'path';
 
 export interface ProblemStatement {
   sNo: number;
@@ -1236,6 +1237,51 @@ let problemStatementsStore: ProblemStatement[] = [
 
 let registrationsStore: FormValues[] = [];
 
+const dataDir = path.join(process.cwd(), 'data');
+const csvFilePath = path.join(dataDir, 'registrations.csv');
+
+async function ensureDataDirExists() {
+  try {
+    await fs.mkdir(dataDir, { recursive: true });
+  } catch (error) {
+    console.error('Error creating data directory:', error);
+  }
+}
+
+function escapeCsvCell(cell: any) {
+  let cellStr = ('' + cell).trim();
+  if (/[",\n\r]/.test(cellStr)) {
+    cellStr = `"${cellStr.replace(/"/g, '""')}"`;
+  }
+  return cellStr;
+}
+
+function convertToCsvRow(data: FormValues) {
+  const row: any[] = [
+    escapeCsvCell(data.teamName),
+    escapeCsvCell(data.problemStatement),
+  ];
+  data.members.forEach((member: any) => {
+    row.push(escapeCsvCell(member.name));
+    row.push(escapeCsvCell(member.department));
+    row.push(escapeCsvCell(member.year));
+    row.push(escapeCsvCell(member.gender));
+  });
+  return row.join(',');
+}
+
+const csvHeaders = [
+    'Team Name',
+    'Problem Statement',
+    'Member 1 Name', 'Member 1 Dept', 'Member 1 Year', 'Member 1 Gender',
+    'Member 2 Name', 'Member 2 Dept', 'Member 2 Year', 'Member 2 Gender',
+    'Member 3 Name', 'Member 3 Dept', 'Member 3 Year', 'Member 3 Gender',
+    'Member 4 Name', 'Member 4 Dept', 'Member 4 Year', 'Member 4 Gender',
+    'Member 5 Name', 'Member 5 Dept', 'Member 5 Year', 'Member 5 Gender',
+    'Member 6 Name', 'Member 6 Dept', 'Member 6 Year', 'Member 6 Gender',
+].join(',');
+
+
 // Let's ensure this is treated as a singleton on the server.
 if (process.env.NODE_ENV !== 'production') {
   if (!(global as any).problemStatementsStore) {
@@ -1267,8 +1313,26 @@ export async function registerTeamAction(data: FormValues) {
   try {
     const validatedData = formSchema.parse(data);
     
-    // Store the registration
+    // Store the registration in-memory
     registrationsStore.push(validatedData);
+
+    // Persist to CSV file
+    await ensureDataDirExists();
+    let fileExists = false;
+    try {
+        await fs.access(csvFilePath);
+        fileExists = true;
+    } catch (e) {
+        // File does not exist
+    }
+
+    let csvContent = '';
+    if (!fileExists) {
+        csvContent += csvHeaders + '\n';
+    }
+    csvContent += convertToCsvRow(validatedData) + '\n';
+    await fs.appendFile(csvFilePath, csvContent, 'utf-8');
+
 
     // Update the submittedIdeas count
     const statementIndex = problemStatementsStore.findIndex(
@@ -1299,6 +1363,15 @@ export async function registerTeamAction(data: FormValues) {
 export async function clearRegistrations() {
   registrationsStore = [];
   problemStatementsStore.forEach(ps => ps.submittedIdeas = 0);
+  
+  // Clear the CSV file
+  await ensureDataDirExists();
+  try {
+      await fs.writeFile(csvFilePath, csvHeaders + '\n', 'utf-8');
+  } catch (error) {
+      console.error('Failed to clear registrations.csv', error);
+  }
+
   revalidatePath('/', 'layout');
   return { success: true };
 }
