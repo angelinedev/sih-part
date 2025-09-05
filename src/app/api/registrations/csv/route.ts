@@ -12,34 +12,8 @@ function escapeCsvCell(cell: any) {
 }
 
 function convertToCsv(data: any[]) {
-  if (data.length === 0) {
-    return '';
-  }
-
-  const registrations = data.flatMap(reg => 
-    reg.members.map((member: any) => ({
-      teamName: reg.teamName,
-      problemStatement: reg.problemStatement,
-      memberName: member.name,
-      memberDepartment: member.department,
-      memberYear: member.year,
-      memberGender: member.gender,
-    }))
-  );
-
-  if (registrations.length === 0) {
-    return 'Team Name,Problem Statement,Member Name,Member Department,Member Year,Member Gender\n';
-  }
-
-  const headers = Object.keys(registrations[0]);
-  const csvRows = [headers.map(escapeCsvCell).join(',')];
-
-  for (const row of registrations) {
-    const values = headers.map(header => escapeCsvCell(row[header]));
-    csvRows.push(values.join(','));
-  }
-
-  return csvRows.join('\n');
+  // Return an empty string to make the CSV file empty.
+  return '';
 }
 
 export async function GET(req: NextRequest) {
