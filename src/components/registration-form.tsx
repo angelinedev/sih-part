@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,7 +44,7 @@ import { getProblemStatements, ProblemStatement, registerTeamAction } from "@/se
 import { formSchema, FormValues } from "@/lib/schemas";
 
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
-const departments = ["cse-a", "cse-b", "ece", "it-a", "it-b", "eee", "aiml", "aids", "cs", "csbs"];
+const departments = ["cse", "ece", "it", "eee", "aiml", "aids", "cs", "csbs"];
 
 export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
   const { toast } = useToast();
