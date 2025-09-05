@@ -1234,6 +1234,17 @@ let problemStatementsStore: ProblemStatement[] = [
 ];
 let registrationsStore: FormValues[] = [];
 
+// Let's ensure this is treated as a singleton on the server.
+if (process.env.NODE_ENV !== 'production') {
+  if (!(global as any).problemStatementsStore) {
+    (global as any).problemStatementsStore = problemStatementsStore;
+    (global as any).registrationsStore = registrationsStore;
+  }
+  problemStatementsStore = (global as any).problemStatementsStore;
+  registrationsStore = (global as any).registrationsStore;
+}
+
+
 export async function getProblemStatements() {
   return problemStatementsStore;
 }
@@ -1248,15 +1259,14 @@ export async function getRegistrations() {
 
 export async function registerTeamAction(data: FormValues) {
   try {
-    // The data is already validated on the client-side, 
-    // so we can directly use it here.
+    const validatedData = formSchema.parse(data);
     
     // Store the registration
-    registrationsStore.push(data);
+    registrationsStore.push(validatedData);
 
     // Update the submittedIdeas count
     const statementIndex = problemStatementsStore.findIndex(
-      ps => ps.psNumber === data.problemStatement
+      ps => ps.psNumber === validatedData.problemStatement
     );
 
     if (statementIndex !== -1) {
@@ -1265,14 +1275,14 @@ export async function registerTeamAction(data: FormValues) {
       throw new Error("Problem statement not found.");
     }
     
-    revalidatePath('/');
-    revalidatePath(`/register/${data.problemStatement}`);
+    revalidatePath('/', 'layout');
 
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
       return { success: false, error: 'Validation failed.' };
     }
-    return { success: false, error: 'An unexpected error occurred.' };
+    const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
+    return { success: false, error: errorMessage };
   }
 }
