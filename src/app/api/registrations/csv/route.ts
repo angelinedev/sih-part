@@ -3,18 +3,47 @@ import { NextRequest, NextResponse } from 'next/server';
 
 function escapeCsvCell(cell: any) {
   let cellStr = ('' + cell).trim();
-  // If the cell contains a comma, a quote, or a newline, wrap it in double quotes.
   if (/[",\n\r]/.test(cellStr)) {
-    // Escape existing double quotes by doubling them
     cellStr = `"${cellStr.replace(/"/g, '""')}"`;
   }
   return cellStr;
 }
 
 function convertToCsv(data: any[]) {
-  // Return an empty string to make the CSV file empty.
-  return '';
+  if (!data || data.length === 0) {
+    return '';
+  }
+
+  const headers = [
+    'Team Name',
+    'Problem Statement',
+    'Member 1 Name', 'Member 1 Dept', 'Member 1 Year', 'Member 1 Gender',
+    'Member 2 Name', 'Member 2 Dept', 'Member 2 Year', 'Member 2 Gender',
+    'Member 3 Name', 'Member 3 Dept', 'Member 3 Year', 'Member 3 Gender',
+    'Member 4 Name', 'Member 4 Dept', 'Member 4 Year', 'Member 4 Gender',
+    'Member 5 Name', 'Member 5 Dept', 'Member 5 Year', 'Member 5 Gender',
+    'Member 6 Name', 'Member 6 Dept', 'Member 6 Year', 'Member 6 Gender',
+  ];
+
+  const csvRows = [headers.join(',')];
+
+  data.forEach((registration) => {
+    const row: any[] = [
+      escapeCsvCell(registration.teamName),
+      escapeCsvCell(registration.problemStatement),
+    ];
+    registration.members.forEach((member: any) => {
+      row.push(escapeCsvCell(member.name));
+      row.push(escapeCsvCell(member.department));
+      row.push(escapeCsvCell(member.year));
+      row.push(escapeCsvCell(member.gender));
+    });
+    csvRows.push(row.join(','));
+  });
+
+  return csvRows.join('\n');
 }
+
 
 export async function GET(req: NextRequest) {
   try {
