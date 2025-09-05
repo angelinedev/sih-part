@@ -1,8 +1,9 @@
 'use server';
 
 import { z } from 'zod';
-import { formSchema, FormValues } from '@/components/registration-form';
 import { revalidatePath } from 'next/cache';
+import { formSchema, FormValues } from '@/lib/schemas';
+
 
 export interface ProblemStatement {
   sNo: number;
@@ -1232,6 +1233,7 @@ let problemStatementsStore: ProblemStatement[] = [
         theme: "Space Technology",
     },
 ];
+
 let registrationsStore: FormValues[] = [];
 
 // Let's ensure this is treated as a singleton on the server.
@@ -1246,10 +1248,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 export async function getProblemStatements() {
+  // Simulate network latency
+  await new Promise(resolve => setTimeout(resolve, 500));
   return problemStatementsStore;
 }
 
 export async function getProblemStatementByPsNumber(psNumber: string) {
+    // Simulate network latency
+  await new Promise(resolve => setTimeout(resolve, 200));
   return problemStatementsStore.find(ps => ps.psNumber === psNumber) || null;
 }
 
@@ -1272,6 +1278,7 @@ export async function registerTeamAction(data: FormValues) {
     if (statementIndex !== -1) {
       problemStatementsStore[statementIndex].submittedIdeas += 1;
     } else {
+      // This case should ideally not happen if validation is correct
       throw new Error("Problem statement not found.");
     }
     
@@ -1280,7 +1287,9 @@ export async function registerTeamAction(data: FormValues) {
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: 'Validation failed.' };
+      // Create a more detailed error message
+      const errorMessages = error.errors.map(e => `${e.path.join('.')} - ${e.message}`).join(', ');
+      return { success: false, error: `Validation failed: ${errorMessages}` };
     }
     const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
     return { success: false, error: errorMessage };

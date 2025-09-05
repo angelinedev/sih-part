@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 import { useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
@@ -41,24 +40,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { User, Users, Loader2 } from "lucide-react";
 import { getProblemStatements, ProblemStatement, registerTeamAction } from "@/services/problem-statement-service";
-
-
-const memberSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  department: z.string().min(1, { message: "Department is required." }),
-  year: z.string().min(1, { message: "Please select a year." }),
-  gender: z.enum(["male", "female"], {
-    required_error: "You need to select a gender.",
-  }),
-});
-
-export const formSchema = z.object({
-  teamName: z.string().min(3, { message: "Team name must be at least 3 characters." }),
-  problemStatement: z.string().min(1, { message: "Please select a problem statement." }),
-  members: z.array(memberSchema).length(6, { message: "A team must have exactly 6 members." }),
-});
-
-export type FormValues = z.infer<typeof formSchema>;
+import { formSchema, FormValues } from "@/lib/schemas";
 
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
