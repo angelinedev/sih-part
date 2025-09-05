@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -46,7 +47,7 @@ const memberSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   department: z.string().min(1, { message: "Department is required." }),
   year: z.string({ required_error: "Please select a year." }),
-  gender: z.enum(["male", "female", "other"], {
+  gender: z.enum(["male", "female"], {
     required_error: "You need to select a gender.",
   }),
 });
@@ -63,6 +64,7 @@ const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
 export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
   const { toast } = useToast();
+  const router = useRouter();
 
   const defaultMembers = Array(6).fill({
     name: "",
@@ -105,6 +107,7 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
     });
     console.log(data);
     form.reset();
+    router.push('/');
   }
 
   return (
@@ -239,12 +242,6 @@ export default function RegistrationForm({ psNumber }: { psNumber?: string }) {
                                       <RadioGroupItem value="female" />
                                     </FormControl>
                                     <FormLabel className="font-normal">Female</FormLabel>
-                                  </FormItem>
-                                  <FormItem className="flex items-center space-x-2 space-y-0">
-                                    <FormControl>
-                                      <RadioGroupItem value="other" />
-                                    </FormControl>
-                                    <FormLabel className="font-normal">Other</FormLabel>
                                   </FormItem>
                                 </RadioGroup>
                               </FormControl>
